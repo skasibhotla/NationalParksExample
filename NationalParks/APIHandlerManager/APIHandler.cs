@@ -9,12 +9,15 @@ namespace NationalParks.APIHandlerManager
 {
   public class APIHandler
   {
-    // Obtaining the API key is easy. The same key should be usable across the entire
-    // data.gov developer network, i.e. all data sources on data.gov.
-    // https://www.nps.gov/subjects/developer/get-started.htm
+        // Obtaining the API key is easy. The same key should be usable across the entire
+        // data.gov developer network, i.e. all data sources on data.gov.
+        // https://www.nps.gov/subjects/developer/get-started.htm
 
-    static string BASE_URL = "https://developer.nps.gov/api/v1/";
-    static string API_KEY = ""; //Add your API key here inside ""
+        //static string BASE_URL = "https://developer.nps.gov/api/v1/";
+        //https://api.data.gov/ed/collegescorecard/v1/schools.json?school.degrees_awarded.predominant=2,3&fields=id,school.name,2013.student.size
+
+        static string BASE_URL = "https://api.data.gov/ed/collegescorecard/v1/schools?student.enrollment.grad_12_month=G12MN";
+        static string API_KEY = "f53I92HKdvqaUe1bojmcKhshvYVRFaWPzdGGzRWV"; //Add your API key here inside ""
 
     HttpClient httpClient;
 
@@ -38,8 +41,10 @@ namespace NationalParks.APIHandlerManager
     /// <returns></returns>
     public Parks GetParks()
     {
-      string NATIONAL_PARK_API_PATH = BASE_URL + "/parks?limit=20";
-      string parksData = "";
+      //string NATIONAL_PARK_API_PATH = BASE_URL + "/parks?limit=20";
+            string NATIONAL_PARK_API_PATH = BASE_URL ;
+
+            string parksData = "";
 
       Parks parks = null;
 
